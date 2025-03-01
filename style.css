@@ -1,0 +1,60 @@
+/* ul#foot {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+} */
+
+footer {
+    text-align:center;
+    padding: 10px 0px;
+    background:#22b799;
+    color: #ffffff;
+    text-decoration: none;
+    margin-top:20px;
+    bottom: 0;
+    width: 100%;
+}
+
+.title-container {
+    background-color: #22b799;
+    text-align: right;
+    padding: 15px 0px;
+    width: 100%;
+}
+
+.nav-button {
+    font-size: 15px;
+    margin-right: 20px;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.nav-button:hover {
+    color: #343841;
+    color: #dddddd;
+}
+
+.logo-container {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+
+.logo-container img {
+    width: 70px;
+    height: 70px;
+    border-radius: 10%;
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Fira Sans';
+    text-align: center;
+}
