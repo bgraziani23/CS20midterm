@@ -8,22 +8,77 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 
     <style>
-        
+        .header {
+            font-family: "Bebas Neue", sans-serif;
+            letter-spacing: 2px;
+            text-align: center;
+            padding: 30px 20px;
+            background: #f4f4f4;
+        }
 
+        .header h1 {
+            font-size: 40;
+            color: #333;
+            margin-bottom: 10px;
+        }
 
+        .header p {
+            font-size: 20;
+            color: #666;
+            margin-bottom: 20px;
+        }
+        .cta-button {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 15px;
+            color: white;
+            background: #007BFF;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+        .cta-button:hover {
+            background: #0056b3;
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            padding: 20px;
+            font-family: "Bebas Neue", sans-serif;
+            letter-spacing: 1px;
+            background: #f4f4f4;
+        }
+        .column {
+            flex: 1;
+            max-width: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: left;
+        }
+        .button {
+            background: #000;
+            border-radius: 5px;
+            padding: 10px;
+            text-decoration: none;
+            color: #fff;
+        }
 
     </style>
-    
+
 </head>
 <body>
     <a href="home.html" class="logo-container">
-        <img src="logo.png">
+        <img src="images/logo.png">
     </a>
 
     <div class="title-container">
+        <br />
         <a href="home.html" class="nav-button">Home</a>
         <a href="shop.html" class="nav-button">Shop</a>
         <a href="carvalcalc.html" class="nav-button">Value Calculator</a>
@@ -31,18 +86,58 @@
         <a href="help.html" class="nav-button">Help</a>
         <a href="reviews.html" class="nav-button">Reviews</a>
         <a href="contact.html" class="nav-button">Contact Us</a>
-        
+        <br /><br />
+    </div>
+
+    <img src="images/car.jpg" width=100%>
+
+    <div class="header">
+        <h1>Find Your Perfect Ride at Second Spin!</h1>
+        <p>Quality Used Cars at Unbeatable Prices!</p>
+        <a href="shop.html" class="cta-button">Browse Inventory</a>
+    </div>
+
+    <div class="container">
+        <div class="column">
+            <h2>Why Choose Second Spin?</h2>
+            <ul>
+                <li>Quality Inspected Vehicles</li>
+                <li>Affordable Prices & Financing Options</li>
+                <li>Trusted by Thousands of Customers</li>
+                <li>Hassle-Free Car Buying Experience</li>
+            </ul>
+        </div>
+    
+        <div class="column">
+            <h2>Find Out Your Car's Worth</h2>
+            <p>Use our value calculator to get an estimate before trading in your car.</p>
+
+            <a href="carvalcalc.html" class="button">Check My Car's Value</a>
+        </div>
+
+        <div class="column">
+            <h2>What Our Customers Say</h2>
+            <blockquote>
+                "Second Spin made buying a used car so easy! Great prices and amazing service!"  
+                <cite>- Alex R.</cite>
+            </blockquote>
+            <blockquote>
+                "Highly recommend! I got a great deal and the process was super smooth."  
+                <cite>- Jamie L.</cite>
+            </blockquote>
+            <a href="reviews.html" class="button">Read More Reviews</a>
+        </div>
     </div>
 
     <!-- <ul id="foot"> -->
     <footer class="footer">
-        Address, Address, 10029
-        <br>
         <a href='contact.html'>Contact</a>
-        &dot;
+        <a>&nbsp;&nbsp;|&nbsp;&nbsp;</a>
         <a href='about.html'>About Us</a>
-        &dot;
+        <a>&nbsp;&nbsp;|&nbsp;&nbsp;</a>
         <a href='shop.html'>Shop</a>
+        <br />
+        &copy; 2025 Second Spin&nbsp;&nbsp;|&nbsp;&nbsp;All Rights Reserved
     </footer>
     <!-- </ul> -->
 </body>
