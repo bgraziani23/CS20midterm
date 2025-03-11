@@ -1,7 +1,15 @@
 
 function loadCars() {
         $.get("cars.json", function(data) {
-                displayCars(data);
+                const carObjects = data.map(car => ({
+                        carname: car.carname,
+                        price: car.price,
+                        image: car.image,
+                        description: car.description,
+                        details: car.details,
+                        location: car.location
+                }));
+                displayCars(carObjects);
         })
     }
     
