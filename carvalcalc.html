@@ -1,10 +1,193 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Used Cars</title>
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Used Cars</title>
+  <!-- jQuery, jQuery UI, and jQuery Validate -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.js"></script>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body { 
+      font-family: Arial, sans-serif; 
+      background-color: #f2f2f2; 
+      text-align: center; 
+    }
+    .container {
+      width: 50%; 
+      margin: 50px auto; 
+      padding: 20px; 
+      background: #fff; 
+      border: 1px solid #ccc; 
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    label { 
+      display: block; 
+      margin: 15px 0 5px; 
+      text-align: left;
+    }
+    select, input[type="number"] {
+      width: 100%; 
+      padding: 8px; 
+      box-sizing: border-box;
+    }
+    .radio-group { 
+      text-align: left; 
+      margin-top: 10px; 
+    }
+    .radio-group input { 
+      margin-right: 5px;
+    }
+    .error { 
+      color: red; 
+      font-size: 0.9em; 
+    }
+    #resultContainer {
+      display: none; 
+      font-size: 2em; 
+      margin-top: 20px;
+    }
+  </style>
 </head>
 <body>
+    <a href="home.html" class="logo-container">
+        <img src="images/logo.png">
+    </a>
+
+    <div class="title-container">
+        <br />
+        <a href="home.html" class="nav-button">Home</a>
+        <a href="shop.html" class="nav-button">Shop</a>
+        <a href="carvalcalc.html" class="nav-button">Value Calculator</a>
+        <a href="about.html" class="nav-button">About Us</a>
+        <a href="help.html" class="nav-button">Help</a>
+        <a href="reviews.html" class="nav-button">Reviews</a>
+        <a href="contact.html" class="nav-button">Contact Us</a>
+        <br /><br />
+    </div>
+  <div class="container">
+    <div id="initialForm">
+      <h2>Select Your Car</h2>
+      <form id="carForm">
+        <label for="make">Car Make:</label>
+        <select id="make" name="make" required>
+          <option value="">Select a make</option>
+          <option value="Toyota">Toyota</option>
+          <option value="Honda">Honda</option>
+          <option value="Ford">Ford</option>
+          <option value="Chevrolet">Chevrolet</option>
+          <option value="BMW">BMW</option>
+          <option value="Mercedes">Mercedes</option>
+          <option value="Nissan">Nissan</option>
+          <option value="Volkswagen">Volkswagen</option>
+        </select>
+
+        <label for="model">Car Model:</label>
+        <select id="model" name="model" required>
+          <option value="">Select a model</option>
+          <option value="Corolla">Corolla</option>
+          <option value="Civic">Civic</option>
+          <option value="Mustang">Mustang</option>
+          <option value="Camaro">Camaro</option>
+          <option value="X5">X5</option>
+          <option value="C-Class">C-Class</option>
+          <option value="Altima">Altima</option>
+          <option value="Golf">Golf</option>
+        </select>
+
+        <label for="year">Year:</label>
+        <select id="year" name="year" required>
+          <option value="">Select a year</option>
+          <script>
+            for (let y = 2025; y >= 1980; y--) {
+              document.write('<option value="' + y + '">' + y + '</option>');
+            }
+          </script>
+        </select>
+
+        <label>Condition:</label>
+        <div class="radio-group">
+          <input type="radio" id="good" name="condition" value="good" required>
+          <label for="good" style="display:inline;">Good</label>
+          <input type="radio" id="average" name="condition" value="average" required>
+          <label for="average" style="display:inline;">Average</label>
+          <input type="radio" id="poor" name="condition" value="poor" required>
+          <label for="poor" style="display:inline;">Poor</label>
+        </div>
+
+        <label for="mileage">Mileage:</label>
+        <input type="number" id="mileage" name="mileage" required min="0">
+
+        <button type="submit" id="submitBtn">Calculate Trade-In Value</button>
+      </form>
+    </div>
+
+    <!-- Result container (hidden by default) -->
+    <div id="resultContainer">
+      <h2>Estimated Trade-In Value</h2>
+      <p>$<span id="resultValue">0</span></p>
+    </div>
+  </div>
+
+  <script>
+    $(document).ready(function() {
+      // Validate the form using jQuery Validate
+      $("#carForm").validate({
+        rules: {
+          make: { required: true },
+          model: { required: true },
+          year: { required: true },
+          condition: { required: true },
+          mileage: { required: true, number: true, min: 0 }
+        },
+        messages: {
+          make: "Please select a car make",
+          model: "Please select a car model",
+          year: "Please select a car year",
+          condition: "Please select a condition",
+          mileage: "Please enter a valid mileage"
+        },
+        errorElement: "div",
+        errorPlacement: function(error, element) {
+          error.insertAfter(element);
+        },
+        submitHandler: function(form) {
+          // Basic calculation logic for trade-in value
+          let baseValue = 20000;
+          let year = parseInt($("#year").val());
+          let mileage = parseInt($("#mileage").val());
+          let condition = $("input[name='condition']:checked").val();
+          
+          let ageDeduction = (2025 - year) * 500;
+          let mileageDeduction = Math.floor(mileage / 1000) * 100;
+          let computedValue = baseValue - ageDeduction - mileageDeduction;
+          if (computedValue < 0) computedValue = 0;
+          
+          let conditionFactor = (condition === 'good') ? 1 : (condition === 'average') ? 0.85 : 0.7;
+          let tradeInValue = computedValue * conditionFactor;
+          
+          // Fade out the form, then fade in the result container with a counting effect
+          $("#carForm").fadeOut(500, function() {
+            $("#resultContainer").fadeIn(500, function() {
+              $({ countNum: 0 }).animate({ countNum: tradeInValue }, {
+                duration: 2000,
+                easing: "linear",
+                step: function() {
+                  $("#resultValue").text(Math.floor(this.countNum));
+                },
+                complete: function() {
+                  $("#resultValue").text(tradeInValue.toFixed(2));
+                }
+              });
+            });
+          });
+        }
+      });
+    });
+  </script>
 </body>
+</html>
