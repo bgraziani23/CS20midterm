@@ -1,14 +1,14 @@
 
-function loadCars() {
+    function loadCars() {
         $.get("cars.json", function(data) {
-                const carObjects = data.map(car => ({
-                        carname: car.carname,
-                        price: car.price,
-                        image: car.image,
-                        description: car.description,
-                        details: car.details,
-                }));
-                displayCars(carObjects);
+            const carObjects = data.map(car => ({
+                    carname: car.carname,
+                    price: car.price,
+                    image: car.image,
+                    description: car.description,
+                    details: car.details,
+            }));
+            displayCars(carObjects);
         })
     }
     
@@ -49,14 +49,14 @@ function loadCars() {
         }
     });
 
-document.addEventListener('keydown', (event) => {
-    if (event.key === "Escape") {
-        closeCar();
-    }
-});
+    document.addEventListener('keydown', (event) => {
+        if (event.key === "Escape") {
+            closeCar();
+        }
+    });
 
     
-    document.querySelector('.close-btn').addEventListener('click', closeCar);
+    document.getElementsByClassName('close-btn')[0].addEventListener('click', closeCar);
     
     window.onload = loadCars;
     
