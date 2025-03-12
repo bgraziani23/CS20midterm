@@ -7,6 +7,8 @@
                     image: car.image,
                     description: car.description,
                     details: car.details,
+                    location: car.location,
+                    mileage: car.mileage 
             }));
             displayCars(carObjects);
         })
@@ -36,6 +38,8 @@
         document.getElementById('box-description').textContent = car.carname;
         document.getElementById('box-price').textContent = `Price: ${car.price}`;
         document.getElementById('box-details').textContent = car.details || 'More details not available.';
+        document.getElementById('box-location').textContent = car.location;
+        document.getElementById('box-mileage').textContent = car.mileage;
         box.style.display = 'flex';
     }
     
