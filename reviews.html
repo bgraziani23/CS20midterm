@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Used Cars</title>
+<link rel="stylesheet" href="style.css">
+<link
+    href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"
+    rel="stylesheet"
+/>
+<style type="text/css">
+    .container {
+        max-width: 1200px;
+        margin: auto;
+        padding: 1rem;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10rem;
+    }
+
+    .container-left h1 {
+        margin-bottom: 2rem;
+        font-size: 2.5rem;
+        font-weight: 500;
+        color: #007BFF;
+    }
+
+    .container-right {
+        display: grid;
+        gap: 2rem ;
+    }
+
+    .card {
+        padding: 2rem;
+        display: flex;
+        align-items: flex-start;
+        gap: 2rem;
+        border-radius: 1rem;
+        box-shadow: 5px 5px 20px;
+         
+    }
+
+    .card img {
+        max-width: 75px;
+    }
+    
+    .content {
+        display: flex;
+        gap: 1rem;
+    }
+
+    .content span i {
+        font-size: 2rem;
+        color: #007BFF;
+    }
+
+    .details p {
+        font-style: italic;
+        color: gray;
+        margin-bottom: 1rem;
+    }
+
+    .details h4 {
+        text-align: center;
+        color: #007BFF;
+        font-size: 1rem;
+        font-weight: 500;
+    }
+
+    @media (width < 1200px) {
+        .container {
+            gap: 3rem;
+        }
+    }
+
+    @media (width < 900px) {
+        .container {
+            grid-template-columns: repeat(1, 1fr);
+        }
+
+        .container-right {
+            grid-template-columns: repeat(1, 1fr);
+        }
+    }
+
+</style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="container-left">
+                <h1>What Customers Are Saying About Us</h1>
+            </div>
+            <div class="container-right">
+                <div class="card">
+                    <img src="images/lady1.jpg" alt="user">
+                    <div class="content">
+                        <span><i class="ri-double-quotes-l"></i></span>
+                        <div class="details">
+                            <p>
+                                Second Spin made buying my used car a breeze! 
+                                The process was smooth, and customer service was excellent. 
+                                Highly recommend for a transparent and 
+                                trustworthy car-buying experience!
+                            </p>
+                            <h4>- Emily Harris</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="images/lady1.jpg" alt="user">
+                    <div class="content">
+                        <span><i class="ri-double-quotes-l"></i></span>
+                        <div class="details">
+                            <p>
+                                Second Spin made buying my used car a breeze! 
+                                The process was smooth, and customer service was excellent. 
+                                Highly recommend for a transparent and 
+                                trustworthy car-buying experience!
+                            </p>
+                            <h4>- Emily Harris</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="images/lady1.jpg" alt="user">
+                    <div class="content">
+                        <span><i class="ri-double-quotes-l"></i></span>
+                        <div class="details">
+                            <p>
+                                Second Spin made buying my used car a breeze! 
+                                The process was smooth, and customer service was excellent. 
+                                Highly recommend for a transparent and 
+                                trustworthy car-buying experience!
+                            </p>
+                            <h4>- Emily Harris</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+</body>
