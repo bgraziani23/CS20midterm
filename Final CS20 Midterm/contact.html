@@ -22,12 +22,6 @@
         font-size: 36px;
         padding-top: 40px;
     }
-    h2 {
-        text-align: center;
-        margin-top: 40px;
-        color: #333;
-        font-size: 28px;
-    }
 
     form {
         display: flex;
@@ -173,7 +167,7 @@
     </span>
 
     <!-- End of code to copy -->
-    <h2>Your Information</h2>
+    <h1>Your Information</h1>
     <form>
         <div>
             <label for="first-name">First Name</label>
@@ -191,13 +185,6 @@
             <label for="confirm-email">Confirm Email Address</label>
             <input type="email" id="confirm-email" name="confirm-email" required>
         </div>
-        <!-- <div>
-            <label for="question">Question</label>
-            <textarea id="question" name="question" required></textarea>
-        </div>
-        <div class="submit-button">
-            <button type="submit" id="submit">Submit</button>
-        </div> -->
         <div class="form-columns">
             <div class="form-left">
                 <label for="question">Question</label>
@@ -212,6 +199,8 @@
     </form>
 
     <script>
+
+        // Handles when emails are not the same
         document.getElementById('submit').onclick = function () {
             email = document.getElementById('email').value;
             confirm_email = document.getElementById('confirm-email').value;
