@@ -1,5 +1,6 @@
 
-    function loadCars() {
+   // Get cars objects from json file
+   function loadCars() {
         $.get("cars.json", function(data) {
             const carObjects = data.map(car => ({
                     carname: car.carname,
@@ -14,6 +15,7 @@
         })
     }
     
+    // Make cars in the main-page grid
     function displayCars(cars) {
         const carGrid = document.getElementById('car-grid');
         carGrid.innerHTML = '';
@@ -32,6 +34,7 @@
         });
     }
     
+    // Setup clickable cars
     function openCar(car) {
         const box = document.getElementById('car-box');
         document.getElementById('box-image').src = car.image;
@@ -43,24 +46,28 @@
         box.style.display = 'flex';
     }
     
+    // Functionality to close the car-card
     function closeCar() {
         document.getElementById('car-box').style.display = 'none';
     }
     
+    // If you click outside the box, close the box
     document.getElementById('car-box').addEventListener('click', (event) => {
         if (event.target.classList.contains('car-box')) {
             closeCar();
         }
     });
 
+    // Listener: hit escape, close the box
     document.addEventListener('keydown', (event) => {
         if (event.key === "Escape") {
             closeCar();
         }
     });
 
-    
+    // Listener: click x button, close box
     document.getElementsByClassName('close-btn')[0].addEventListener('click', closeCar);
     
+    // Load cars onto page and read json when page is loaded
     window.onload = loadCars;
     
